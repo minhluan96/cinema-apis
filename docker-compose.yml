@@ -1,0 +1,21 @@
+version: '2'
+services:
+  db:
+    image: mysql:5.6.35
+    volumes:
+      - '~/.data/mysql:/var/lib/mysql'
+  server:
+    build: .
+    image: 'cinema'
+    environment:
+      DEVISE_JWT_SECRET_KEY: f618d5437794ac63ee449eb6cad7cb143b1722445767a62b49a4f9a9683afcc6124dbd7625b3a94369f2849ecc31d02dedd10e451ddab4a1288b9a5160296719
+    command: sleep infinity
+    volumes:
+      - .:/cinema
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    tty: true
+    depends_on:
+      - db
+    container_name: cinema-webapp

@@ -1,0 +1,9 @@
+version: '2'
+services:
+  server:
+    volumes:
+      - cinama-app-code-sync:/cinema:nocopy
+
+volumes:
+  cinama-app-code-sync:
+    external: true

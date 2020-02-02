@@ -1,0 +1,10 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  host: db
+  username: root
+  password: root
+  pool: 5
+  database: cinema_development
+development:
+  <<: *default
